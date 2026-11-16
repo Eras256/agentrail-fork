@@ -1,6 +1,7 @@
 # AgentRail Protocol 🛰️🤖
 
 [![CI](https://github.com/SorobanAgents/agentrail/actions/workflows/ci.yml/badge.svg)](https://github.com/SorobanAgents/agentrail/actions/workflows/ci.yml)
+[![AgentSentinel Security Gate](https://github.com/SorobanAgents/agentrail/actions/workflows/agentsentinel.yml/badge.svg)](https://github.com/marketplace/actions/agentsentinel-ai-security-gate)
 [![Live Simulator](https://img.shields.io/badge/Live%20Simulator-GitHub%20Pages-00D4B2.svg?logo=stellar)](https://sorobanagents.github.io/agentrail/)
 [![SCF Activation](https://img.shields.io/badge/SCF%20Activation-Proposal%20Ready-7C3AED.svg)](SCF_ACTIVATION_PROPOSAL.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
