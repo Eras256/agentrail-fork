@@ -132,6 +132,26 @@ console.log("Spend Status:", result.code, "Remaining:", result.remainingStroops)
 
 ---
 
+## 🧾 Optional Public Receipts
+
+Opt-in and off the payment path. After a successful spend or a proof-of-task check, build a canonical receipt and anchor only its SHA-256 hash to a public Audit Trail node. You get back a CID that anyone can re-check at https://nirium.xyz/verify without an account. The receipt itself stays with you, and a proof-of-task receipt never includes the raw output or nonce. If anchoring fails, `anchorReceipt` returns `{ ok: false }` instead of throwing, so the spend is unaffected.
+
+```typescript
+import { anchorReceipt, buildSpendReceipt, createAuditTrailProvider } from "@soroban-agents/agentrail";
+
+const provider = createAuditTrailProvider(); // testnet node; pass { baseUrl: AUDIT_TRAIL_MAINNET_URL } for mainnet
+
+if (result.ok) {
+  const receipt = buildSpendReceipt(request, result, { contractId: "CCONTRACT...", txHash }); // txHash is optional
+  const anchored = await anchorReceipt(receipt, provider, { tag: "agentrail-spend" });
+  if (anchored.ok) console.log("Receipt:", anchored.verifyUrl);
+}
+
+// Proof-of-task: buildTaskProofReceipt({ taskId, agentWorkerPublicKey, taskCommitmentHash, verification, timestamp })
+```
+
+---
+
 ## 🌊 Stellar Drips Wave Program
 
 AgentRail participates in the **Stellar Drips Wave Program**.
